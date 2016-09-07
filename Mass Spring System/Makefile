@@ -1,0 +1,18 @@
+CC=g++
+
+CFLAGS=-c -std=c++0x -O3 -Wall
+LDFLAGS=-lGLEW -lGL -lglut -lXi -L/usr/X11R6/lib
+SOURCES=main.cpp ShaderTools.cpp Mat4f.cpp OpenGLMatrixTools.cpp Vec3f.cpp
+OBJECTS=$(SOURCES:.cpp=.o)
+EXECUTABLE=mss
+
+all: $(SOURCES) $(EXECUTABLE)
+
+$(EXECUTABLE): $(OBJECTS)
+	$(CC) $(OBJECTS) -o $@ $(LDFLAGS)
+
+.cpp.o:
+	$(CC) $(CFLAGS) $< -o $@
+
+clean:
+	rm *.o $(EXECUTABLE)

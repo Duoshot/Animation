@@ -1,0 +1,2 @@
+#enter how many boids u want (recommended: 20)
+20
